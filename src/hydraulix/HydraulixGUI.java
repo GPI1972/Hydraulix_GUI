@@ -187,11 +187,11 @@ public class HydraulixGUI extends javax.swing.JFrame {
       layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
       .addGroup(layout.createSequentialGroup()
         .addContainerGap()
-        .addComponent(jTabbedPane1)
-        .addContainerGap())
-      .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-        .addComponent(jButton1)
+        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+          .addComponent(jTabbedPane1)
+          .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+            .addGap(0, 0, Short.MAX_VALUE)
+            .addComponent(jButton1)))
         .addContainerGap())
     );
     layout.setVerticalGroup(
@@ -213,24 +213,53 @@ public class HydraulixGUI extends javax.swing.JFrame {
   }//GEN-LAST:event_jButton1ActionPerformed
 
   private void orificeCalcButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_orificeCalcButtonActionPerformed
-    // define input variables
-    double newOrificeDiam = Double.parseDouble(orificeDiameter.getText());
-    double newOrificeHead = Double.parseDouble(orificeHead.getText());
-    double newOrificeCD = Double.parseDouble(orificeDischargeCoeff.getText());
+    // clear output
+    orificeResults.setText("");
+        
+    // read inputs
+    String newOrificeDiam = orificeDiameter.getText();
+    String newOrificeHead = orificeHead.getText();
+    String newOrificeCD = orificeDischargeCoeff.getText();
     String results;
     
-    Orifice newOrifice = new Orifice(newOrificeDiam, newOrificeCD, newOrificeHead);
-    newOrifice.setDischarge();
+    // compute hydraulic paramters if all inputs are valid
+    if (checkInput(newOrificeDiam) && (checkInput(newOrificeHead)) && (checkInput(newOrificeCD))){
+      Orifice newOrifice = new Orifice(Double.parseDouble(newOrificeDiam), Double.parseDouble(newOrificeCD), Double.parseDouble(newOrificeHead));
+      newOrifice.setDischarge();
     
-    results = "Hydraulic characteristics\n";
-    results = results + "_________________________\n\n";
-    results = results + String.format("Orifice area: %.2f m^2\n", newOrifice.getFlowArea());
-    results = results + String.format("Velocity: %.2f m/s\n", newOrifice.getVelocity());
-    results = results + String.format("Ofirice flow: %.2f m^3/s\n", newOrifice.getDischarge());
-    orificeResults.setText(results);
-    
+      results = "Hydraulic characteristics\n";
+      results = results + "_________________________\n\n";
+      results = results + String.format("Orifice area: %.2f m^2\n", newOrifice.getFlowArea());
+      results = results + String.format("Velocity: %.2f m/s\n", newOrifice.getVelocity());
+      results = results + String.format("Ofirice flow: %.2f m^3/s\n", newOrifice.getDischarge());
+      orificeResults.setText(results);
+    }
+    else{
+      orificeResults.setText("Invalid input parameters");
+    }
   }//GEN-LAST:event_orificeCalcButtonActionPerformed
 
+  // method to check that input is numeric & positive
+  // takes a String
+  // returns boolean
+  private Boolean checkInput(String userInput){
+    Boolean validInput = true;
+    try{
+      // throws an exception if userInput is non-numeric
+      double currInput = Double.parseDouble(userInput);
+      
+      // throws an exception for negative numeric inputs
+      if (currInput < 0){
+        throw new Exception();
+      }
+    }
+    catch(Exception e){
+      validInput = false;
+    }
+    return validInput;
+  }
+  
+  
   /**
    * @param args the command line arguments
    */
