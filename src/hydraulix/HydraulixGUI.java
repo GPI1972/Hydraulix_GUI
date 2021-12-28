@@ -27,37 +27,110 @@ public class HydraulixGUI extends javax.swing.JFrame {
     jTabbedPane1 = new javax.swing.JTabbedPane();
     jPanel1 = new javax.swing.JPanel();
     jPanel2 = new javax.swing.JPanel();
+    jLabel1 = new javax.swing.JLabel();
+    orificeDiameter = new javax.swing.JTextField();
+    jLabel2 = new javax.swing.JLabel();
+    orificeHead = new javax.swing.JTextField();
+    jLabel3 = new javax.swing.JLabel();
+    orificeDischargeCoeff = new javax.swing.JTextField();
+    jScrollPane1 = new javax.swing.JScrollPane();
+    orificeResults = new javax.swing.JTextArea();
+    orificeCalcButton = new javax.swing.JButton();
     jPanel3 = new javax.swing.JPanel();
     jPanel4 = new javax.swing.JPanel();
     jPanel5 = new javax.swing.JPanel();
     jButton1 = new javax.swing.JButton();
 
     setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+    setTitle("Hydraulix - Calculator Toolbox");
+    setResizable(false);
 
-    jTabbedPane1.setBorder(javax.swing.BorderFactory.createTitledBorder("Hydraulix"));
+    jTabbedPane1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
     javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
     jPanel1.setLayout(jPanel1Layout);
     jPanel1Layout.setHorizontalGroup(
       jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-      .addGap(0, 562, Short.MAX_VALUE)
+      .addGap(0, 593, Short.MAX_VALUE)
     );
     jPanel1Layout.setVerticalGroup(
       jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-      .addGap(0, 276, Short.MAX_VALUE)
+      .addGap(0, 302, Short.MAX_VALUE)
     );
 
     jTabbedPane1.addTab("Open Channel", jPanel1);
+
+    jLabel1.setText("Diameter (m):");
+
+    orificeDiameter.setToolTipText("Enter orifice diameter in metres");
+
+    jLabel2.setText("Head (m):");
+
+    orificeHead.setToolTipText("Enter water head in metres");
+
+    jLabel3.setText("Coefficient:");
+
+    orificeDischargeCoeff.setText("0.6");
+    orificeDischargeCoeff.setToolTipText("Enter discharge coefficient (Default is 0.6)");
+
+    orificeResults.setEditable(false);
+    orificeResults.setColumns(20);
+    orificeResults.setForeground(new java.awt.Color(0, 0, 0));
+    orificeResults.setLineWrap(true);
+    orificeResults.setRows(5);
+    orificeResults.setFocusable(false);
+    jScrollPane1.setViewportView(orificeResults);
+
+    orificeCalcButton.setText("Calc");
+    orificeCalcButton.addActionListener(new java.awt.event.ActionListener() {
+      public void actionPerformed(java.awt.event.ActionEvent evt) {
+        orificeCalcButtonActionPerformed(evt);
+      }
+    });
 
     javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
     jPanel2.setLayout(jPanel2Layout);
     jPanel2Layout.setHorizontalGroup(
       jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-      .addGap(0, 562, Short.MAX_VALUE)
+      .addGroup(jPanel2Layout.createSequentialGroup()
+        .addContainerGap()
+        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+          .addGroup(jPanel2Layout.createSequentialGroup()
+            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+              .addComponent(jLabel1)
+              .addComponent(jLabel2)
+              .addComponent(jLabel3))
+            .addGap(18, 18, 18)
+            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+              .addComponent(orificeDiameter, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+              .addComponent(orificeHead, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+              .addComponent(orificeDischargeCoeff, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)))
+          .addComponent(orificeCalcButton))
+        .addGap(18, 18, 18)
+        .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 393, Short.MAX_VALUE)
+        .addContainerGap())
     );
     jPanel2Layout.setVerticalGroup(
       jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-      .addGap(0, 276, Short.MAX_VALUE)
+      .addGroup(jPanel2Layout.createSequentialGroup()
+        .addContainerGap()
+        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+          .addGroup(jPanel2Layout.createSequentialGroup()
+            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
+              .addComponent(jLabel1)
+              .addComponent(orificeDiameter, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
+              .addComponent(jLabel2)
+              .addComponent(orificeHead, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
+              .addComponent(jLabel3)
+              .addComponent(orificeDischargeCoeff, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 162, Short.MAX_VALUE)
+            .addComponent(orificeCalcButton))
+          .addComponent(jScrollPane1))
+        .addContainerGap())
     );
 
     jTabbedPane1.addTab("Orifice", jPanel2);
@@ -66,11 +139,11 @@ public class HydraulixGUI extends javax.swing.JFrame {
     jPanel3.setLayout(jPanel3Layout);
     jPanel3Layout.setHorizontalGroup(
       jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-      .addGap(0, 562, Short.MAX_VALUE)
+      .addGap(0, 593, Short.MAX_VALUE)
     );
     jPanel3Layout.setVerticalGroup(
       jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-      .addGap(0, 276, Short.MAX_VALUE)
+      .addGap(0, 302, Short.MAX_VALUE)
     );
 
     jTabbedPane1.addTab("Weir", jPanel3);
@@ -79,11 +152,11 @@ public class HydraulixGUI extends javax.swing.JFrame {
     jPanel4.setLayout(jPanel4Layout);
     jPanel4Layout.setHorizontalGroup(
       jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-      .addGap(0, 562, Short.MAX_VALUE)
+      .addGap(0, 593, Short.MAX_VALUE)
     );
     jPanel4Layout.setVerticalGroup(
       jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-      .addGap(0, 276, Short.MAX_VALUE)
+      .addGap(0, 302, Short.MAX_VALUE)
     );
 
     jTabbedPane1.addTab("Pipe Head Losses", jPanel4);
@@ -92,11 +165,11 @@ public class HydraulixGUI extends javax.swing.JFrame {
     jPanel5.setLayout(jPanel5Layout);
     jPanel5Layout.setHorizontalGroup(
       jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-      .addGap(0, 562, Short.MAX_VALUE)
+      .addGap(0, 593, Short.MAX_VALUE)
     );
     jPanel5Layout.setVerticalGroup(
       jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-      .addGap(0, 276, Short.MAX_VALUE)
+      .addGap(0, 302, Short.MAX_VALUE)
     );
 
     jTabbedPane1.addTab("Pipe Minor Losses", jPanel5);
@@ -116,10 +189,10 @@ public class HydraulixGUI extends javax.swing.JFrame {
         .addContainerGap()
         .addComponent(jTabbedPane1)
         .addContainerGap())
-      .addGroup(layout.createSequentialGroup()
-        .addGap(234, 234, 234)
+      .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         .addComponent(jButton1)
-        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        .addContainerGap())
     );
     layout.setVerticalGroup(
       layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -128,7 +201,7 @@ public class HydraulixGUI extends javax.swing.JFrame {
         .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 345, javax.swing.GroupLayout.PREFERRED_SIZE)
         .addGap(18, 18, 18)
         .addComponent(jButton1)
-        .addContainerGap(17, Short.MAX_VALUE))
+        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
     );
 
     pack();
@@ -138,6 +211,25 @@ public class HydraulixGUI extends javax.swing.JFrame {
     // TODO add your handling code here:
     System.exit(0);
   }//GEN-LAST:event_jButton1ActionPerformed
+
+  private void orificeCalcButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_orificeCalcButtonActionPerformed
+    // define input variables
+    double newOrificeDiam = Double.parseDouble(orificeDiameter.getText());
+    double newOrificeHead = Double.parseDouble(orificeHead.getText());
+    double newOrificeCD = Double.parseDouble(orificeDischargeCoeff.getText());
+    String results;
+    
+    Orifice newOrifice = new Orifice(newOrificeDiam, newOrificeCD, newOrificeHead);
+    newOrifice.setDischarge();
+    
+    results = "Hydraulic characteristics\n";
+    results = results + "_________________________\n\n";
+    results = results + String.format("Orifice area: %.2f m^2\n", newOrifice.getFlowArea());
+    results = results + String.format("Velocity: %.2f m/s\n", newOrifice.getVelocity());
+    results = results + String.format("Ofirice flow: %.2f m^3/s\n", newOrifice.getDischarge());
+    orificeResults.setText(results);
+    
+  }//GEN-LAST:event_orificeCalcButtonActionPerformed
 
   /**
    * @param args the command line arguments
@@ -176,11 +268,20 @@ public class HydraulixGUI extends javax.swing.JFrame {
 
   // Variables declaration - do not modify//GEN-BEGIN:variables
   private javax.swing.JButton jButton1;
+  private javax.swing.JLabel jLabel1;
+  private javax.swing.JLabel jLabel2;
+  private javax.swing.JLabel jLabel3;
   private javax.swing.JPanel jPanel1;
   private javax.swing.JPanel jPanel2;
   private javax.swing.JPanel jPanel3;
   private javax.swing.JPanel jPanel4;
   private javax.swing.JPanel jPanel5;
+  private javax.swing.JScrollPane jScrollPane1;
   private javax.swing.JTabbedPane jTabbedPane1;
+  private javax.swing.JButton orificeCalcButton;
+  private javax.swing.JTextField orificeDiameter;
+  private javax.swing.JTextField orificeDischargeCoeff;
+  private javax.swing.JTextField orificeHead;
+  private javax.swing.JTextArea orificeResults;
   // End of variables declaration//GEN-END:variables
 }
