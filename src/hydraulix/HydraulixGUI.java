@@ -36,10 +36,11 @@ public class HydraulixGUI extends javax.swing.JFrame {
     jScrollPane1 = new javax.swing.JScrollPane();
     orificeResults = new javax.swing.JTextArea();
     orificeCalcButton = new javax.swing.JButton();
+    orificeResetButton = new javax.swing.JButton();
     jPanel3 = new javax.swing.JPanel();
     jPanel4 = new javax.swing.JPanel();
     jPanel5 = new javax.swing.JPanel();
-    jButton1 = new javax.swing.JButton();
+    exitButton = new javax.swing.JButton();
 
     setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
     setTitle("Hydraulix - Calculator Toolbox");
@@ -51,11 +52,11 @@ public class HydraulixGUI extends javax.swing.JFrame {
     jPanel1.setLayout(jPanel1Layout);
     jPanel1Layout.setHorizontalGroup(
       jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-      .addGap(0, 593, Short.MAX_VALUE)
+      .addGap(0, 682, Short.MAX_VALUE)
     );
     jPanel1Layout.setVerticalGroup(
       jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-      .addGap(0, 302, Short.MAX_VALUE)
+      .addGap(0, 375, Short.MAX_VALUE)
     );
 
     jTabbedPane1.addTab("Open Channel", jPanel1);
@@ -75,6 +76,7 @@ public class HydraulixGUI extends javax.swing.JFrame {
 
     orificeResults.setEditable(false);
     orificeResults.setColumns(20);
+    orificeResults.setFont(new java.awt.Font("Courier New", 0, 14)); // NOI18N
     orificeResults.setForeground(new java.awt.Color(0, 0, 0));
     orificeResults.setLineWrap(true);
     orificeResults.setRows(5);
@@ -88,13 +90,20 @@ public class HydraulixGUI extends javax.swing.JFrame {
       }
     });
 
+    orificeResetButton.setText("Reset");
+    orificeResetButton.addActionListener(new java.awt.event.ActionListener() {
+      public void actionPerformed(java.awt.event.ActionEvent evt) {
+        orificeResetButtonActionPerformed(evt);
+      }
+    });
+
     javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
     jPanel2.setLayout(jPanel2Layout);
     jPanel2Layout.setHorizontalGroup(
       jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
       .addGroup(jPanel2Layout.createSequentialGroup()
         .addContainerGap()
-        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
           .addGroup(jPanel2Layout.createSequentialGroup()
             .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
               .addComponent(jLabel1)
@@ -105,9 +114,12 @@ public class HydraulixGUI extends javax.swing.JFrame {
               .addComponent(orificeDiameter, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
               .addComponent(orificeHead, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
               .addComponent(orificeDischargeCoeff, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)))
-          .addComponent(orificeCalcButton))
+          .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+            .addComponent(orificeCalcButton)
+            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(orificeResetButton)))
         .addGap(18, 18, 18)
-        .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 393, Short.MAX_VALUE)
+        .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 466, Short.MAX_VALUE)
         .addContainerGap())
     );
     jPanel2Layout.setVerticalGroup(
@@ -127,8 +139,10 @@ public class HydraulixGUI extends javax.swing.JFrame {
             .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
               .addComponent(jLabel3)
               .addComponent(orificeDischargeCoeff, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 162, Short.MAX_VALUE)
-            .addComponent(orificeCalcButton))
+            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 235, Short.MAX_VALUE)
+            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+              .addComponent(orificeResetButton)
+              .addComponent(orificeCalcButton)))
           .addComponent(jScrollPane1))
         .addContainerGap())
     );
@@ -139,11 +153,11 @@ public class HydraulixGUI extends javax.swing.JFrame {
     jPanel3.setLayout(jPanel3Layout);
     jPanel3Layout.setHorizontalGroup(
       jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-      .addGap(0, 593, Short.MAX_VALUE)
+      .addGap(0, 682, Short.MAX_VALUE)
     );
     jPanel3Layout.setVerticalGroup(
       jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-      .addGap(0, 302, Short.MAX_VALUE)
+      .addGap(0, 375, Short.MAX_VALUE)
     );
 
     jTabbedPane1.addTab("Weir", jPanel3);
@@ -152,11 +166,11 @@ public class HydraulixGUI extends javax.swing.JFrame {
     jPanel4.setLayout(jPanel4Layout);
     jPanel4Layout.setHorizontalGroup(
       jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-      .addGap(0, 593, Short.MAX_VALUE)
+      .addGap(0, 682, Short.MAX_VALUE)
     );
     jPanel4Layout.setVerticalGroup(
       jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-      .addGap(0, 302, Short.MAX_VALUE)
+      .addGap(0, 375, Short.MAX_VALUE)
     );
 
     jTabbedPane1.addTab("Pipe Head Losses", jPanel4);
@@ -165,19 +179,19 @@ public class HydraulixGUI extends javax.swing.JFrame {
     jPanel5.setLayout(jPanel5Layout);
     jPanel5Layout.setHorizontalGroup(
       jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-      .addGap(0, 593, Short.MAX_VALUE)
+      .addGap(0, 682, Short.MAX_VALUE)
     );
     jPanel5Layout.setVerticalGroup(
       jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-      .addGap(0, 302, Short.MAX_VALUE)
+      .addGap(0, 375, Short.MAX_VALUE)
     );
 
     jTabbedPane1.addTab("Pipe Minor Losses", jPanel5);
 
-    jButton1.setText("Exit");
-    jButton1.addActionListener(new java.awt.event.ActionListener() {
+    exitButton.setText("Exit");
+    exitButton.addActionListener(new java.awt.event.ActionListener() {
       public void actionPerformed(java.awt.event.ActionEvent evt) {
-        jButton1ActionPerformed(evt);
+        exitButtonActionPerformed(evt);
       }
     });
 
@@ -191,53 +205,58 @@ public class HydraulixGUI extends javax.swing.JFrame {
           .addComponent(jTabbedPane1)
           .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
             .addGap(0, 0, Short.MAX_VALUE)
-            .addComponent(jButton1)))
+            .addComponent(exitButton)))
         .addContainerGap())
     );
     layout.setVerticalGroup(
       layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
       .addGroup(layout.createSequentialGroup()
         .addContainerGap()
-        .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 345, javax.swing.GroupLayout.PREFERRED_SIZE)
+        .addComponent(jTabbedPane1)
         .addGap(18, 18, 18)
-        .addComponent(jButton1)
-        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        .addComponent(exitButton)
+        .addContainerGap())
     );
 
     pack();
   }// </editor-fold>//GEN-END:initComponents
 
-  private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-    // TODO add your handling code here:
+  private void exitButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_exitButtonActionPerformed
     System.exit(0);
-  }//GEN-LAST:event_jButton1ActionPerformed
+  }//GEN-LAST:event_exitButtonActionPerformed
 
   private void orificeCalcButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_orificeCalcButtonActionPerformed
-    // clear output
-    orificeResults.setText("");
-        
     // read inputs
     String newOrificeDiam = orificeDiameter.getText();
     String newOrificeHead = orificeHead.getText();
     String newOrificeCD = orificeDischargeCoeff.getText();
-    String results;
-    
+    String results = orificeResults.getText();
+        
     // compute hydraulic paramters if all inputs are valid
     if (checkInput(newOrificeDiam) && (checkInput(newOrificeHead)) && (checkInput(newOrificeCD))){
       Orifice newOrifice = new Orifice(Double.parseDouble(newOrificeDiam), Double.parseDouble(newOrificeCD), Double.parseDouble(newOrificeHead));
       newOrifice.setDischarge();
     
-      results = "Hydraulic characteristics\n";
-      results = results + "_________________________\n\n";
-      results = results + String.format("Orifice area: %.2f m^2\n", newOrifice.getFlowArea());
+      results = results + "Results - Orifice\n";
+      results = results + "-------------------------\n";
+      results = results + String.format("Area: %.2f m^2\n", newOrifice.getFlowArea());
       results = results + String.format("Velocity: %.2f m/s\n", newOrifice.getVelocity());
-      results = results + String.format("Ofirice flow: %.2f m^3/s\n", newOrifice.getDischarge());
+      results = results + String.format("Flow rate: %.2f m^3/s\n\n", newOrifice.getDischarge());
       orificeResults.setText(results);
     }
     else{
-      orificeResults.setText("Invalid input parameters");
+      results = results + "Invalid input parameters\n";
+      results = results + "-------------------------\n\n";
+      orificeResults.setText(results);
     }
   }//GEN-LAST:event_orificeCalcButtonActionPerformed
+
+  private void orificeResetButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_orificeResetButtonActionPerformed
+    // Reset all input fields to blank or default values
+    orificeDiameter.setText("");
+    orificeHead.setText("");
+    orificeDischargeCoeff.setText("0.6");
+  }//GEN-LAST:event_orificeResetButtonActionPerformed
 
   // method to check that input is numeric & positive
   // takes a String
@@ -296,7 +315,7 @@ public class HydraulixGUI extends javax.swing.JFrame {
   }
 
   // Variables declaration - do not modify//GEN-BEGIN:variables
-  private javax.swing.JButton jButton1;
+  private javax.swing.JButton exitButton;
   private javax.swing.JLabel jLabel1;
   private javax.swing.JLabel jLabel2;
   private javax.swing.JLabel jLabel3;
@@ -311,6 +330,7 @@ public class HydraulixGUI extends javax.swing.JFrame {
   private javax.swing.JTextField orificeDiameter;
   private javax.swing.JTextField orificeDischargeCoeff;
   private javax.swing.JTextField orificeHead;
+  private javax.swing.JButton orificeResetButton;
   private javax.swing.JTextArea orificeResults;
   // End of variables declaration//GEN-END:variables
 }
