@@ -588,6 +588,8 @@ public class HydraulixGUI extends javax.swing.JFrame {
   }//GEN-LAST:event_channelResetButtonActionPerformed
 
   // method to intialise default channel fields
+  // takes no arguments
+  // returns void
   private void initChannelFields(){
     // disable fields not applicable to rectangular sections
     jLabel7.setEnabled(false);
