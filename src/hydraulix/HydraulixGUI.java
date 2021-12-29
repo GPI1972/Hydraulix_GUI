@@ -15,6 +15,7 @@ public class HydraulixGUI extends javax.swing.JFrame {
    */
   public HydraulixGUI() {
     initComponents();
+    initChannelFields();
   }
 
   /**
@@ -24,19 +25,47 @@ public class HydraulixGUI extends javax.swing.JFrame {
   // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
   private void initComponents() {
 
+    buttonGroup1 = new javax.swing.ButtonGroup();
     jTabbedPane1 = new javax.swing.JTabbedPane();
     jPanel1 = new javax.swing.JPanel();
+    jPanel7 = new javax.swing.JPanel();
+    channelCalcButton = new javax.swing.JButton();
+    channelResetButton = new javax.swing.JButton();
+    channelRectButton = new javax.swing.JRadioButton();
+    channelCircButton = new javax.swing.JRadioButton();
+    channelTrapButton = new javax.swing.JRadioButton();
+    jSeparator1 = new javax.swing.JSeparator();
+    jLabel4 = new javax.swing.JLabel();
+    channelSlope = new javax.swing.JTextField();
+    jLabel5 = new javax.swing.JLabel();
+    channelRoughness = new javax.swing.JTextField();
+    jLabel6 = new javax.swing.JLabel();
+    channelBottomWidth = new javax.swing.JTextField();
+    jLabel7 = new javax.swing.JLabel();
+    channelDiameter = new javax.swing.JTextField();
+    jLabel8 = new javax.swing.JLabel();
+    channelLeftSlope = new javax.swing.JTextField();
+    jLabel9 = new javax.swing.JLabel();
+    channelRightSlope = new javax.swing.JTextField();
+    jLabel10 = new javax.swing.JLabel();
+    channelWaterDepth = new javax.swing.JTextField();
+    jSeparator3 = new javax.swing.JSeparator();
+    jPanel6 = new javax.swing.JPanel();
+    jScrollPane2 = new javax.swing.JScrollPane();
+    channelResults = new javax.swing.JTextArea();
     jPanel2 = new javax.swing.JPanel();
+    jPanel8 = new javax.swing.JPanel();
     jLabel1 = new javax.swing.JLabel();
     orificeDiameter = new javax.swing.JTextField();
     jLabel2 = new javax.swing.JLabel();
     orificeHead = new javax.swing.JTextField();
     jLabel3 = new javax.swing.JLabel();
     orificeDischargeCoeff = new javax.swing.JTextField();
-    jScrollPane1 = new javax.swing.JScrollPane();
-    orificeResults = new javax.swing.JTextArea();
     orificeCalcButton = new javax.swing.JButton();
     orificeResetButton = new javax.swing.JButton();
+    jPanel9 = new javax.swing.JPanel();
+    jScrollPane1 = new javax.swing.JScrollPane();
+    orificeResults = new javax.swing.JTextArea();
     jPanel3 = new javax.swing.JPanel();
     jPanel4 = new javax.swing.JPanel();
     jPanel5 = new javax.swing.JPanel();
@@ -48,15 +77,214 @@ public class HydraulixGUI extends javax.swing.JFrame {
 
     jTabbedPane1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
+    channelCalcButton.setText("Calc");
+    channelCalcButton.addActionListener(new java.awt.event.ActionListener() {
+      public void actionPerformed(java.awt.event.ActionEvent evt) {
+        channelCalcButtonActionPerformed(evt);
+      }
+    });
+
+    channelResetButton.setText("Reset");
+    channelResetButton.addActionListener(new java.awt.event.ActionListener() {
+      public void actionPerformed(java.awt.event.ActionEvent evt) {
+        channelResetButtonActionPerformed(evt);
+      }
+    });
+
+    buttonGroup1.add(channelRectButton);
+    channelRectButton.setSelected(true);
+    channelRectButton.setText("Rectangular Section");
+    channelRectButton.addActionListener(new java.awt.event.ActionListener() {
+      public void actionPerformed(java.awt.event.ActionEvent evt) {
+        channelRectButtonActionPerformed(evt);
+      }
+    });
+
+    buttonGroup1.add(channelCircButton);
+    channelCircButton.setText("Circular Section");
+    channelCircButton.addActionListener(new java.awt.event.ActionListener() {
+      public void actionPerformed(java.awt.event.ActionEvent evt) {
+        channelCircButtonActionPerformed(evt);
+      }
+    });
+
+    buttonGroup1.add(channelTrapButton);
+    channelTrapButton.setText("Trapezoidal Section");
+    channelTrapButton.addActionListener(new java.awt.event.ActionListener() {
+      public void actionPerformed(java.awt.event.ActionEvent evt) {
+        channelTrapButtonActionPerformed(evt);
+      }
+    });
+
+    jLabel4.setText("Channel Slope (m/m):");
+
+    channelSlope.setToolTipText("Enter slope of channel in m/m");
+
+    jLabel5.setText("Manning's Roughness:");
+
+    channelRoughness.setToolTipText("Enter Manning's roughness coefficient");
+
+    jLabel6.setText("Bottom Width (m):");
+
+    channelBottomWidth.setToolTipText("Enter bottom width of channel in metres");
+
+    jLabel7.setText("Channel Diameter (m):");
+
+    channelDiameter.setToolTipText("Enter diameter of channel in metres");
+
+    jLabel8.setText("Side Slope - L (1:V): ");
+
+    channelLeftSlope.setToolTipText("Enter left side slope of channel (1 horizontal to V vertical)");
+
+    jLabel9.setText("Side Slope - R (1:V):");
+
+    channelRightSlope.setToolTipText("Enter right side slope of channel (1 horizontal to V vertical)");
+
+    jLabel10.setText("Water Depth (m):");
+
+    channelWaterDepth.setToolTipText("Enter water depth in metres");
+
+    javax.swing.GroupLayout jPanel7Layout = new javax.swing.GroupLayout(jPanel7);
+    jPanel7.setLayout(jPanel7Layout);
+    jPanel7Layout.setHorizontalGroup(
+      jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+      .addGroup(jPanel7Layout.createSequentialGroup()
+        .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+          .addGroup(jPanel7Layout.createSequentialGroup()
+            .addGap(6, 6, 6)
+            .addComponent(channelCalcButton)
+            .addGap(18, 18, Short.MAX_VALUE)
+            .addComponent(channelResetButton))
+          .addGroup(jPanel7Layout.createSequentialGroup()
+            .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+              .addGroup(jPanel7Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                  .addComponent(jLabel4)
+                  .addComponent(jLabel5)
+                  .addComponent(jLabel6)
+                  .addComponent(jLabel7)
+                  .addComponent(jLabel8)
+                  .addComponent(jLabel9)
+                  .addComponent(jLabel10))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                  .addComponent(channelSlope, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                  .addComponent(channelRoughness, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                  .addComponent(channelBottomWidth, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                  .addComponent(channelDiameter, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                  .addComponent(channelLeftSlope, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                  .addComponent(channelRightSlope, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                  .addComponent(channelWaterDepth, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)))
+              .addGroup(jPanel7Layout.createSequentialGroup()
+                .addGap(6, 6, 6)
+                .addComponent(channelTrapButton))
+              .addGroup(jPanel7Layout.createSequentialGroup()
+                .addGap(6, 6, 6)
+                .addComponent(channelCircButton))
+              .addGroup(jPanel7Layout.createSequentialGroup()
+                .addGap(6, 6, 6)
+                .addComponent(channelRectButton)))
+            .addGap(0, 0, Short.MAX_VALUE))
+          .addGroup(jPanel7Layout.createSequentialGroup()
+            .addContainerGap()
+            .addComponent(jSeparator1))
+          .addGroup(jPanel7Layout.createSequentialGroup()
+            .addContainerGap()
+            .addComponent(jSeparator3)))
+        .addContainerGap())
+    );
+    jPanel7Layout.setVerticalGroup(
+      jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+      .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel7Layout.createSequentialGroup()
+        .addContainerGap()
+        .addComponent(channelRectButton)
+        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+        .addComponent(channelCircButton)
+        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+        .addComponent(channelTrapButton)
+        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+        .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
+        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+        .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
+          .addComponent(channelSlope, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+          .addComponent(jLabel4))
+        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+        .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
+          .addComponent(channelRoughness, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+          .addComponent(jLabel5))
+        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+        .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
+          .addComponent(channelBottomWidth, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+          .addComponent(jLabel6))
+        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+        .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
+          .addComponent(channelDiameter, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+          .addComponent(jLabel7))
+        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+        .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
+          .addComponent(channelLeftSlope, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+          .addComponent(jLabel8))
+        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+        .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
+          .addComponent(channelRightSlope, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+          .addComponent(jLabel9))
+        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+        .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
+          .addComponent(channelWaterDepth, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+          .addComponent(jLabel10))
+        .addGap(3, 3, 3)
+        .addComponent(jSeparator3, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
+        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+          .addComponent(channelCalcButton)
+          .addComponent(channelResetButton))
+        .addContainerGap())
+    );
+
+    channelResults.setEditable(false);
+    channelResults.setColumns(20);
+    channelResults.setFont(new java.awt.Font("Courier New", 0, 14)); // NOI18N
+    channelResults.setForeground(new java.awt.Color(0, 0, 0));
+    channelResults.setLineWrap(true);
+    channelResults.setRows(5);
+    jScrollPane2.setViewportView(channelResults);
+
+    javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
+    jPanel6.setLayout(jPanel6Layout);
+    jPanel6Layout.setHorizontalGroup(
+      jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+      .addGroup(jPanel6Layout.createSequentialGroup()
+        .addContainerGap()
+        .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 455, Short.MAX_VALUE)
+        .addContainerGap())
+    );
+    jPanel6Layout.setVerticalGroup(
+      jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+      .addGroup(jPanel6Layout.createSequentialGroup()
+        .addContainerGap()
+        .addComponent(jScrollPane2))
+    );
+
     javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
     jPanel1.setLayout(jPanel1Layout);
     jPanel1Layout.setHorizontalGroup(
       jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-      .addGap(0, 682, Short.MAX_VALUE)
+      .addGroup(jPanel1Layout.createSequentialGroup()
+        .addContainerGap()
+        .addComponent(jPanel7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+        .addComponent(jPanel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        .addContainerGap())
     );
     jPanel1Layout.setVerticalGroup(
       jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-      .addGap(0, 375, Short.MAX_VALUE)
+      .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+        .addContainerGap()
+        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+          .addComponent(jPanel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+          .addComponent(jPanel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        .addContainerGap())
     );
 
     jTabbedPane1.addTab("Open Channel", jPanel1);
@@ -74,15 +302,6 @@ public class HydraulixGUI extends javax.swing.JFrame {
     orificeDischargeCoeff.setText("0.6");
     orificeDischargeCoeff.setToolTipText("Enter discharge coefficient (Default is 0.6)");
 
-    orificeResults.setEditable(false);
-    orificeResults.setColumns(20);
-    orificeResults.setFont(new java.awt.Font("Courier New", 0, 14)); // NOI18N
-    orificeResults.setForeground(new java.awt.Color(0, 0, 0));
-    orificeResults.setLineWrap(true);
-    orificeResults.setRows(5);
-    orificeResults.setFocusable(false);
-    jScrollPane1.setViewportView(orificeResults);
-
     orificeCalcButton.setText("Calc");
     orificeCalcButton.addActionListener(new java.awt.event.ActionListener() {
       public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -97,53 +316,100 @@ public class HydraulixGUI extends javax.swing.JFrame {
       }
     });
 
+    javax.swing.GroupLayout jPanel8Layout = new javax.swing.GroupLayout(jPanel8);
+    jPanel8.setLayout(jPanel8Layout);
+    jPanel8Layout.setHorizontalGroup(
+      jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+      .addGroup(jPanel8Layout.createSequentialGroup()
+        .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+          .addGroup(jPanel8Layout.createSequentialGroup()
+            .addGap(6, 6, 6)
+            .addComponent(orificeCalcButton)
+            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(orificeResetButton))
+          .addGroup(jPanel8Layout.createSequentialGroup()
+            .addContainerGap()
+            .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+              .addComponent(jLabel2)
+              .addComponent(jLabel1)
+              .addComponent(jLabel3))
+            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+              .addComponent(orificeDiameter, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+              .addComponent(orificeHead, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+              .addComponent(orificeDischargeCoeff, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))))
+        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+    );
+    jPanel8Layout.setVerticalGroup(
+      jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+      .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel8Layout.createSequentialGroup()
+        .addContainerGap()
+        .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+          .addComponent(orificeDiameter, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+          .addComponent(jLabel1))
+        .addGap(18, 18, 18)
+        .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+          .addComponent(orificeHead, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+          .addComponent(jLabel2))
+        .addGap(20, 20, 20)
+        .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+          .addComponent(jLabel3)
+          .addComponent(orificeDischargeCoeff, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 276, Short.MAX_VALUE)
+        .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+          .addComponent(orificeCalcButton)
+          .addComponent(orificeResetButton))
+        .addContainerGap())
+    );
+
+    orificeResults.setEditable(false);
+    orificeResults.setColumns(20);
+    orificeResults.setFont(new java.awt.Font("Courier New", 0, 14)); // NOI18N
+    orificeResults.setForeground(new java.awt.Color(0, 0, 0));
+    orificeResults.setLineWrap(true);
+    orificeResults.setRows(5);
+    orificeResults.setFocusable(false);
+    jScrollPane1.setViewportView(orificeResults);
+
+    javax.swing.GroupLayout jPanel9Layout = new javax.swing.GroupLayout(jPanel9);
+    jPanel9.setLayout(jPanel9Layout);
+    jPanel9Layout.setHorizontalGroup(
+      jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+      .addGap(0, 494, Short.MAX_VALUE)
+      .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        .addGroup(jPanel9Layout.createSequentialGroup()
+          .addContainerGap()
+          .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 482, Short.MAX_VALUE)
+          .addContainerGap()))
+    );
+    jPanel9Layout.setVerticalGroup(
+      jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+      .addGap(0, 0, Short.MAX_VALUE)
+      .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        .addGroup(jPanel9Layout.createSequentialGroup()
+          .addContainerGap()
+          .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 428, Short.MAX_VALUE)
+          .addContainerGap()))
+    );
+
     javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
     jPanel2.setLayout(jPanel2Layout);
     jPanel2Layout.setHorizontalGroup(
       jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
       .addGroup(jPanel2Layout.createSequentialGroup()
         .addContainerGap()
-        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-          .addGroup(jPanel2Layout.createSequentialGroup()
-            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-              .addComponent(jLabel1)
-              .addComponent(jLabel2)
-              .addComponent(jLabel3))
-            .addGap(18, 18, 18)
-            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-              .addComponent(orificeDiameter, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
-              .addComponent(orificeHead, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
-              .addComponent(orificeDischargeCoeff, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)))
-          .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-            .addComponent(orificeCalcButton)
-            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(orificeResetButton)))
-        .addGap(18, 18, 18)
-        .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 466, Short.MAX_VALUE)
+        .addComponent(jPanel8, javax.swing.GroupLayout.PREFERRED_SIZE, 194, Short.MAX_VALUE)
+        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+        .addComponent(jPanel9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         .addContainerGap())
     );
     jPanel2Layout.setVerticalGroup(
       jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-      .addGroup(jPanel2Layout.createSequentialGroup()
+      .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
         .addContainerGap()
         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-          .addGroup(jPanel2Layout.createSequentialGroup()
-            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
-              .addComponent(jLabel1)
-              .addComponent(orificeDiameter, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
-              .addComponent(jLabel2)
-              .addComponent(orificeHead, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
-              .addComponent(jLabel3)
-              .addComponent(orificeDischargeCoeff, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 235, Short.MAX_VALUE)
-            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-              .addComponent(orificeResetButton)
-              .addComponent(orificeCalcButton)))
-          .addComponent(jScrollPane1))
+          .addComponent(jPanel8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+          .addComponent(jPanel9, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         .addContainerGap())
     );
 
@@ -153,11 +419,11 @@ public class HydraulixGUI extends javax.swing.JFrame {
     jPanel3.setLayout(jPanel3Layout);
     jPanel3Layout.setHorizontalGroup(
       jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-      .addGap(0, 682, Short.MAX_VALUE)
+      .addGap(0, 712, Short.MAX_VALUE)
     );
     jPanel3Layout.setVerticalGroup(
       jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-      .addGap(0, 375, Short.MAX_VALUE)
+      .addGap(0, 454, Short.MAX_VALUE)
     );
 
     jTabbedPane1.addTab("Weir", jPanel3);
@@ -166,11 +432,11 @@ public class HydraulixGUI extends javax.swing.JFrame {
     jPanel4.setLayout(jPanel4Layout);
     jPanel4Layout.setHorizontalGroup(
       jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-      .addGap(0, 682, Short.MAX_VALUE)
+      .addGap(0, 712, Short.MAX_VALUE)
     );
     jPanel4Layout.setVerticalGroup(
       jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-      .addGap(0, 375, Short.MAX_VALUE)
+      .addGap(0, 454, Short.MAX_VALUE)
     );
 
     jTabbedPane1.addTab("Pipe Head Losses", jPanel4);
@@ -179,11 +445,11 @@ public class HydraulixGUI extends javax.swing.JFrame {
     jPanel5.setLayout(jPanel5Layout);
     jPanel5Layout.setHorizontalGroup(
       jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-      .addGap(0, 682, Short.MAX_VALUE)
+      .addGap(0, 712, Short.MAX_VALUE)
     );
     jPanel5Layout.setVerticalGroup(
       jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-      .addGap(0, 375, Short.MAX_VALUE)
+      .addGap(0, 454, Short.MAX_VALUE)
     );
 
     jTabbedPane1.addTab("Pipe Minor Losses", jPanel5);
@@ -212,10 +478,10 @@ public class HydraulixGUI extends javax.swing.JFrame {
       layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
       .addGroup(layout.createSequentialGroup()
         .addContainerGap()
-        .addComponent(jTabbedPane1)
-        .addGap(18, 18, 18)
+        .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+        .addGap(3, 3, 3)
         .addComponent(exitButton)
-        .addContainerGap())
+        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
     );
 
     pack();
@@ -258,6 +524,85 @@ public class HydraulixGUI extends javax.swing.JFrame {
     orificeDischargeCoeff.setText("0.6");
   }//GEN-LAST:event_orificeResetButtonActionPerformed
 
+  private void channelCircButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_channelCircButtonActionPerformed
+    // disable fields not applicable to circular sections
+    jLabel6.setEnabled(false);
+    jLabel8.setEnabled(false);
+    jLabel9.setEnabled(false);
+    channelBottomWidth.setEnabled(false);
+    channelLeftSlope.setEnabled(false);
+    channelRightSlope.setEnabled(false);
+    
+    // enable fields applicable to circular sections
+    jLabel7.setEnabled(true);
+    channelDiameter.setEnabled(true);
+  }//GEN-LAST:event_channelCircButtonActionPerformed
+
+  private void channelTrapButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_channelTrapButtonActionPerformed
+    // disable fields not applicable to trapezoidal sections
+    jLabel7.setEnabled(false);
+    channelDiameter.setEnabled(false);
+        
+    // enable fields applicable to trapezoidal sections
+    jLabel6.setEnabled(true);
+    jLabel8.setEnabled(true);
+    jLabel9.setEnabled(true);
+    channelBottomWidth.setEnabled(true);
+    channelLeftSlope.setEnabled(true);
+    channelRightSlope.setEnabled(true);
+  }//GEN-LAST:event_channelTrapButtonActionPerformed
+
+  private void channelRectButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_channelRectButtonActionPerformed
+    // disable fields not applicable to rectangular sections
+    jLabel7.setEnabled(false);
+    jLabel8.setEnabled(false);
+    jLabel9.setEnabled(false);
+    channelDiameter.setEnabled(false);
+    channelLeftSlope.setEnabled(false);
+    channelRightSlope.setEnabled(false);
+        
+    // enable fields applicable to rectangular sections
+    jLabel6.setEnabled(true);
+    channelBottomWidth.setEnabled(true);
+  }//GEN-LAST:event_channelRectButtonActionPerformed
+
+  private void channelCalcButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_channelCalcButtonActionPerformed
+    // read inputs
+    String results = channelResults.getText();
+    
+    // compute hydraulic paramters if all inputs are valid
+    results = results + "Results - Open Channel\n";
+    channelResults.setText(results);
+    
+  }//GEN-LAST:event_channelCalcButtonActionPerformed
+
+  private void channelResetButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_channelResetButtonActionPerformed
+    // Reset all input fields to blank or default values
+    channelSlope.setText("");
+    channelRoughness.setText("");
+    channelBottomWidth.setText("");
+    channelDiameter.setText("");
+    channelLeftSlope.setText("");
+    channelRightSlope.setText("");
+    channelWaterDepth.setText("");
+  }//GEN-LAST:event_channelResetButtonActionPerformed
+
+  // method to intialise default channel fields
+  private void initChannelFields(){
+    // disable fields not applicable to rectangular sections
+    jLabel7.setEnabled(false);
+    jLabel8.setEnabled(false);
+    jLabel9.setEnabled(false);
+    channelDiameter.setEnabled(false);
+    channelLeftSlope.setEnabled(false);
+    channelRightSlope.setEnabled(false);
+        
+    // enable fields applicable to rectangular sections
+    jLabel6.setEnabled(true);
+    channelBottomWidth.setEnabled(true);
+  }
+  
+  
   // method to check that input is numeric & positive
   // takes a String
   // returns boolean
@@ -315,16 +660,44 @@ public class HydraulixGUI extends javax.swing.JFrame {
   }
 
   // Variables declaration - do not modify//GEN-BEGIN:variables
+  private javax.swing.ButtonGroup buttonGroup1;
+  private javax.swing.JTextField channelBottomWidth;
+  private javax.swing.JButton channelCalcButton;
+  private javax.swing.JRadioButton channelCircButton;
+  private javax.swing.JTextField channelDiameter;
+  private javax.swing.JTextField channelLeftSlope;
+  private javax.swing.JRadioButton channelRectButton;
+  private javax.swing.JButton channelResetButton;
+  private javax.swing.JTextArea channelResults;
+  private javax.swing.JTextField channelRightSlope;
+  private javax.swing.JTextField channelRoughness;
+  private javax.swing.JTextField channelSlope;
+  private javax.swing.JRadioButton channelTrapButton;
+  private javax.swing.JTextField channelWaterDepth;
   private javax.swing.JButton exitButton;
   private javax.swing.JLabel jLabel1;
+  private javax.swing.JLabel jLabel10;
   private javax.swing.JLabel jLabel2;
   private javax.swing.JLabel jLabel3;
+  private javax.swing.JLabel jLabel4;
+  private javax.swing.JLabel jLabel5;
+  private javax.swing.JLabel jLabel6;
+  private javax.swing.JLabel jLabel7;
+  private javax.swing.JLabel jLabel8;
+  private javax.swing.JLabel jLabel9;
   private javax.swing.JPanel jPanel1;
   private javax.swing.JPanel jPanel2;
   private javax.swing.JPanel jPanel3;
   private javax.swing.JPanel jPanel4;
   private javax.swing.JPanel jPanel5;
+  private javax.swing.JPanel jPanel6;
+  private javax.swing.JPanel jPanel7;
+  private javax.swing.JPanel jPanel8;
+  private javax.swing.JPanel jPanel9;
   private javax.swing.JScrollPane jScrollPane1;
+  private javax.swing.JScrollPane jScrollPane2;
+  private javax.swing.JSeparator jSeparator1;
+  private javax.swing.JSeparator jSeparator3;
   private javax.swing.JTabbedPane jTabbedPane1;
   private javax.swing.JButton orificeCalcButton;
   private javax.swing.JTextField orificeDiameter;
