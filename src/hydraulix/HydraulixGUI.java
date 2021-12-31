@@ -492,6 +492,7 @@ public class HydraulixGUI extends javax.swing.JFrame {
   }//GEN-LAST:event_exitButtonActionPerformed
 
   private void orificeCalcButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_orificeCalcButtonActionPerformed
+    // orifice calculator
     // read inputs
     String newOrificeDiam = orificeDiameter.getText();
     String newOrificeHead = orificeHead.getText();
@@ -518,6 +519,7 @@ public class HydraulixGUI extends javax.swing.JFrame {
   }//GEN-LAST:event_orificeCalcButtonActionPerformed
 
   private void orificeResetButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_orificeResetButtonActionPerformed
+    // orifice calculator
     // Reset all input fields to blank or default values
     orificeDiameter.setText("");
     orificeHead.setText("");
@@ -525,12 +527,16 @@ public class HydraulixGUI extends javax.swing.JFrame {
   }//GEN-LAST:event_orificeResetButtonActionPerformed
 
   private void channelCircButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_channelCircButtonActionPerformed
+    // open channel calculator
     // disable fields not applicable to circular sections
     jLabel6.setEnabled(false);
     jLabel8.setEnabled(false);
     jLabel9.setEnabled(false);
+    channelBottomWidth.setText("");
     channelBottomWidth.setEnabled(false);
+    channelLeftSlope.setText("");
     channelLeftSlope.setEnabled(false);
+    channelRightSlope.setText("");
     channelRightSlope.setEnabled(false);
     
     // enable fields applicable to circular sections
@@ -539,10 +545,12 @@ public class HydraulixGUI extends javax.swing.JFrame {
   }//GEN-LAST:event_channelCircButtonActionPerformed
 
   private void channelTrapButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_channelTrapButtonActionPerformed
+    // open channel calculator
     // disable fields not applicable to trapezoidal sections
     jLabel7.setEnabled(false);
+    channelDiameter.setText("");
     channelDiameter.setEnabled(false);
-        
+    
     // enable fields applicable to trapezoidal sections
     jLabel6.setEnabled(true);
     jLabel8.setEnabled(true);
@@ -553,30 +561,109 @@ public class HydraulixGUI extends javax.swing.JFrame {
   }//GEN-LAST:event_channelTrapButtonActionPerformed
 
   private void channelRectButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_channelRectButtonActionPerformed
+    // open channel calculator
     // disable fields not applicable to rectangular sections
     jLabel7.setEnabled(false);
     jLabel8.setEnabled(false);
     jLabel9.setEnabled(false);
+    channelDiameter.setText("");
     channelDiameter.setEnabled(false);
+    channelLeftSlope.setText("");
     channelLeftSlope.setEnabled(false);
+    channelRightSlope.setText("");
     channelRightSlope.setEnabled(false);
-        
+    
     // enable fields applicable to rectangular sections
     jLabel6.setEnabled(true);
     channelBottomWidth.setEnabled(true);
   }//GEN-LAST:event_channelRectButtonActionPerformed
 
   private void channelCalcButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_channelCalcButtonActionPerformed
-    // read inputs
+    // open channel calculator
+    // read common inputs
     String results = channelResults.getText();
+    String newChannelSlope = channelSlope.getText();
+    String newChannelRoughness = channelRoughness.getText();
+    String newChannelWaterDepth = channelWaterDepth.getText();
     
-    // compute hydraulic paramters if all inputs are valid
-    results = results + "Results - Open Channel\n";
-    channelResults.setText(results);
-    
+    if (channelRectButton.isSelected()){
+      // read input relevant to rectangular section
+      String newChannelWidth = channelBottomWidth.getText();
+      
+      // compute hydraulic paramters if all inputs are valid
+      if (checkInput(newChannelSlope) && (checkInput(newChannelRoughness)) && (checkInput(newChannelWaterDepth)) && (checkInput(newChannelWidth))){
+        RecSection newChannel = new RecSection(Double.parseDouble(newChannelSlope), Double.parseDouble(newChannelRoughness), Double.parseDouble(newChannelWidth), Double.parseDouble(newChannelWaterDepth));
+        newChannel.calcSection();
+        
+        results = results + "Results - Rectangular Channel\n";
+        results = results + "------------------------------\n";
+        results = results + String.format("Wetted Perimeter: %.3f m\n", newChannel.getWettedPerimeter());
+        results = results + String.format("Wetted Area: %.3f m^2\n", newChannel.getWettedArea());
+        results = results + String.format("Hydraulic Radius: %.3f m\n", newChannel.getHydraulicR());
+        results = results + String.format("Velocity: %.3f m/s\n", newChannel.getVelocity());
+        results = results + String.format("Flow rate: %.3f m^3/s\n\n", newChannel.getFlowRate());
+        channelResults.setText(results);
+      }
+      else {
+        results = results + "Invalid input parameters\n";
+        results = results + "-------------------------\n\n";
+        channelResults.setText(results);
+      }
+    }
+    else if (channelCircButton.isSelected()){
+      // read input relevant to circular section
+      String newChannelDiameter = channelDiameter.getText();
+      
+      // compute hydraulic paramters if all inputs are valid
+      if (checkInput(newChannelSlope) && (checkInput(newChannelRoughness)) && (checkInput(newChannelWaterDepth)) && (checkInput(newChannelDiameter))){
+        CircSection newChannel = new CircSection(Double.parseDouble(newChannelSlope), Double.parseDouble(newChannelRoughness), (Double.parseDouble(newChannelDiameter)/2), Double.parseDouble(newChannelWaterDepth));
+        newChannel.calcSection();
+        
+        results = results + "Results - Circular Channel\n";
+        results = results + "------------------------------\n";
+        results = results + String.format("Wetted Perimeter: %.3f m\n", newChannel.getWettedPerimeter());
+        results = results + String.format("Wetted Area: %.3f m^2\n", newChannel.getWettedArea());
+        results = results + String.format("Hydraulic Radius: %.3f m\n", newChannel.getHydraulicR());
+        results = results + String.format("Velocity: %.3f m/s\n", newChannel.getVelocity());
+        results = results + String.format("Flow rate: %.3f m^3/s\n\n", newChannel.getFlowRate());
+        channelResults.setText(results);
+      }
+      else {
+        results = results + "Invalid input parameters\n";
+        results = results + "-------------------------\n\n";
+        channelResults.setText(results);
+      }
+    }
+    else {
+      // read input relevant to trapezoidal section
+      String newChannelWidth = channelBottomWidth.getText();
+      String newChannelLSlope = channelLeftSlope.getText();
+      String newChannelRSlope = channelRightSlope.getText();
+      
+      // compute hydraulic paramters if all inputs are valid
+      if (checkInput(newChannelSlope) && (checkInput(newChannelRoughness)) && (checkInput(newChannelWaterDepth)) && (checkInput(newChannelWidth)) && (checkInput(newChannelLSlope)) && (checkInput(newChannelRSlope))){
+        TrapSection newChannel = new TrapSection(Double.parseDouble(newChannelSlope), Double.parseDouble(newChannelRoughness), Double.parseDouble(newChannelWidth), Double.parseDouble(newChannelLSlope), Double.parseDouble(newChannelRSlope), Double.parseDouble(newChannelWaterDepth));
+        newChannel.calcSection();
+        
+        results = results + "Results - Trapezoidal Channel\n";
+        results = results + "------------------------------\n";
+        results = results + String.format("Wetted Perimeter: %.3f m\n", newChannel.getWettedPerimeter());
+        results = results + String.format("Wetted Area: %.3f m^2\n", newChannel.getWettedArea());
+        results = results + String.format("Hydraulic Radius: %.3f m\n", newChannel.getHydraulicR());
+        results = results + String.format("Velocity: %.3f m/s\n", newChannel.getVelocity());
+        results = results + String.format("Flow rate: %.3f m^3/s\n\n", newChannel.getFlowRate());
+        channelResults.setText(results);
+      }
+      else {
+        results = results + "Invalid input parameters\n";
+        results = results + "-------------------------\n\n";
+        channelResults.setText(results);
+      }
+    }
   }//GEN-LAST:event_channelCalcButtonActionPerformed
 
   private void channelResetButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_channelResetButtonActionPerformed
+    // open channel calculator
     // Reset all input fields to blank or default values
     channelSlope.setText("");
     channelRoughness.setText("");
@@ -587,7 +674,8 @@ public class HydraulixGUI extends javax.swing.JFrame {
     channelWaterDepth.setText("");
   }//GEN-LAST:event_channelResetButtonActionPerformed
 
-  // method to intialise default channel fields
+  // open channel calculator
+  // method to intialise default input fields
   // takes no arguments
   // returns void
   private void initChannelFields(){
@@ -605,7 +693,7 @@ public class HydraulixGUI extends javax.swing.JFrame {
   }
   
   
-  // method to check that input is numeric & positive
+  // helper method to check that input is numeric & positive
   // takes a String
   // returns boolean
   private Boolean checkInput(String userInput){
