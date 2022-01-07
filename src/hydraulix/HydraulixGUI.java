@@ -26,6 +26,7 @@ public class HydraulixGUI extends javax.swing.JFrame {
   private void initComponents() {
 
     buttonGroup1 = new javax.swing.ButtonGroup();
+    buttonGroup2 = new javax.swing.ButtonGroup();
     jTabbedPane1 = new javax.swing.JTabbedPane();
     jPanel1 = new javax.swing.JPanel();
     jPanel7 = new javax.swing.JPanel();
@@ -67,6 +68,14 @@ public class HydraulixGUI extends javax.swing.JFrame {
     jScrollPane1 = new javax.swing.JScrollPane();
     orificeResults = new javax.swing.JTextArea();
     jPanel3 = new javax.swing.JPanel();
+    jPanel10 = new javax.swing.JPanel();
+    weirRectSuppButton = new javax.swing.JRadioButton();
+    weirRectContButton = new javax.swing.JRadioButton();
+    weirVNotchButton = new javax.swing.JRadioButton();
+    weirCippolettiButton = new javax.swing.JRadioButton();
+    weirBroadCrestedButton = new javax.swing.JRadioButton();
+    jSeparator2 = new javax.swing.JSeparator();
+    jPanel11 = new javax.swing.JPanel();
     jPanel4 = new javax.swing.JPanel();
     jPanel5 = new javax.swing.JPanel();
     exitButton = new javax.swing.JButton();
@@ -355,7 +364,7 @@ public class HydraulixGUI extends javax.swing.JFrame {
         .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
           .addComponent(jLabel3)
           .addComponent(orificeDischargeCoeff, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 276, Short.MAX_VALUE)
+        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 410, Short.MAX_VALUE)
         .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
           .addComponent(orificeCalcButton)
           .addComponent(orificeResetButton))
@@ -415,15 +424,92 @@ public class HydraulixGUI extends javax.swing.JFrame {
 
     jTabbedPane1.addTab("Orifice", jPanel2);
 
+    jPanel10.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+
+    buttonGroup2.add(weirRectSuppButton);
+    weirRectSuppButton.setSelected(true);
+    weirRectSuppButton.setText("Rect. Suppressed");
+
+    buttonGroup2.add(weirRectContButton);
+    weirRectContButton.setText("Rect. Contracted");
+
+    buttonGroup2.add(weirVNotchButton);
+    weirVNotchButton.setText("V-Notch");
+
+    buttonGroup2.add(weirCippolettiButton);
+    weirCippolettiButton.setText("Cipoletti");
+
+    buttonGroup2.add(weirBroadCrestedButton);
+    weirBroadCrestedButton.setText("Broad Crested");
+
+    javax.swing.GroupLayout jPanel10Layout = new javax.swing.GroupLayout(jPanel10);
+    jPanel10.setLayout(jPanel10Layout);
+    jPanel10Layout.setHorizontalGroup(
+      jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+      .addGroup(jPanel10Layout.createSequentialGroup()
+        .addContainerGap()
+        .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+          .addGroup(jPanel10Layout.createSequentialGroup()
+            .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+              .addComponent(weirRectSuppButton)
+              .addComponent(weirRectContButton)
+              .addComponent(weirVNotchButton)
+              .addComponent(weirCippolettiButton)
+              .addComponent(weirBroadCrestedButton))
+            .addGap(0, 94, Short.MAX_VALUE))
+          .addComponent(jSeparator2, javax.swing.GroupLayout.Alignment.TRAILING))
+        .addContainerGap())
+    );
+    jPanel10Layout.setVerticalGroup(
+      jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+      .addGroup(jPanel10Layout.createSequentialGroup()
+        .addContainerGap()
+        .addComponent(weirRectSuppButton)
+        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+        .addComponent(weirRectContButton)
+        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+        .addComponent(weirVNotchButton)
+        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+        .addComponent(weirCippolettiButton)
+        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+        .addComponent(weirBroadCrestedButton)
+        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+        .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
+        .addContainerGap(387, Short.MAX_VALUE))
+    );
+
+    jPanel11.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+
+    javax.swing.GroupLayout jPanel11Layout = new javax.swing.GroupLayout(jPanel11);
+    jPanel11.setLayout(jPanel11Layout);
+    jPanel11Layout.setHorizontalGroup(
+      jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+      .addGap(0, 442, Short.MAX_VALUE)
+    );
+    jPanel11Layout.setVerticalGroup(
+      jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+      .addGap(0, 0, Short.MAX_VALUE)
+    );
+
     javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
     jPanel3.setLayout(jPanel3Layout);
     jPanel3Layout.setHorizontalGroup(
       jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-      .addGap(0, 712, Short.MAX_VALUE)
+      .addGroup(jPanel3Layout.createSequentialGroup()
+        .addContainerGap()
+        .addComponent(jPanel10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+        .addComponent(jPanel11, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        .addContainerGap())
     );
     jPanel3Layout.setVerticalGroup(
       jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-      .addGap(0, 454, Short.MAX_VALUE)
+      .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
+        .addContainerGap()
+        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+          .addComponent(jPanel11, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+          .addComponent(jPanel10, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+        .addContainerGap())
     );
 
     jTabbedPane1.addTab("Weir", jPanel3);
@@ -436,7 +522,7 @@ public class HydraulixGUI extends javax.swing.JFrame {
     );
     jPanel4Layout.setVerticalGroup(
       jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-      .addGap(0, 454, Short.MAX_VALUE)
+      .addGap(0, 588, Short.MAX_VALUE)
     );
 
     jTabbedPane1.addTab("Pipe Head Losses", jPanel4);
@@ -449,7 +535,7 @@ public class HydraulixGUI extends javax.swing.JFrame {
     );
     jPanel5Layout.setVerticalGroup(
       jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-      .addGap(0, 454, Short.MAX_VALUE)
+      .addGap(0, 588, Short.MAX_VALUE)
     );
 
     jTabbedPane1.addTab("Pipe Minor Losses", jPanel5);
@@ -751,6 +837,7 @@ public class HydraulixGUI extends javax.swing.JFrame {
 
   // Variables declaration - do not modify//GEN-BEGIN:variables
   private javax.swing.ButtonGroup buttonGroup1;
+  private javax.swing.ButtonGroup buttonGroup2;
   private javax.swing.JTextField channelBottomWidth;
   private javax.swing.JButton channelCalcButton;
   private javax.swing.JRadioButton channelCircButton;
@@ -776,6 +863,8 @@ public class HydraulixGUI extends javax.swing.JFrame {
   private javax.swing.JLabel jLabel8;
   private javax.swing.JLabel jLabel9;
   private javax.swing.JPanel jPanel1;
+  private javax.swing.JPanel jPanel10;
+  private javax.swing.JPanel jPanel11;
   private javax.swing.JPanel jPanel2;
   private javax.swing.JPanel jPanel3;
   private javax.swing.JPanel jPanel4;
@@ -787,6 +876,7 @@ public class HydraulixGUI extends javax.swing.JFrame {
   private javax.swing.JScrollPane jScrollPane1;
   private javax.swing.JScrollPane jScrollPane2;
   private javax.swing.JSeparator jSeparator1;
+  private javax.swing.JSeparator jSeparator2;
   private javax.swing.JSeparator jSeparator3;
   private javax.swing.JTabbedPane jTabbedPane1;
   private javax.swing.JButton orificeCalcButton;
@@ -795,5 +885,10 @@ public class HydraulixGUI extends javax.swing.JFrame {
   private javax.swing.JTextField orificeHead;
   private javax.swing.JButton orificeResetButton;
   private javax.swing.JTextArea orificeResults;
+  private javax.swing.JRadioButton weirBroadCrestedButton;
+  private javax.swing.JRadioButton weirCippolettiButton;
+  private javax.swing.JRadioButton weirRectContButton;
+  private javax.swing.JRadioButton weirRectSuppButton;
+  private javax.swing.JRadioButton weirVNotchButton;
   // End of variables declaration//GEN-END:variables
 }
