@@ -944,11 +944,22 @@ public class HydraulixGUI extends javax.swing.JFrame {
     }
     else if (weirVNotchButton.isSelected()){
       // read input relevant to V-Notch weirs
+      String newVNotchAngle = weirNotchAngle.getText();
 
       // compute hydraulic paramters if all inputs are valid
-      results = results + "Results - V-Notch Weir\n";
-      results = results + "----------------------\n";
-      weirResults.setText(results);
+      if (checkInput(newChannelWidth) && (checkInput(newDischargeCoeff)) && (checkInput(newHead)) && (checkInput(newVNotchAngle))){
+        VNotch newVNotch = new VNotch(Double.parseDouble(newDischargeCoeff), Double.parseDouble(newHead), Double.parseDouble(newVNotchAngle));
+        newVNotch.calcFlow();
+        results = results + "Results - V-Notch\n";
+        results = results + "-----------------\n";
+        results = results + String.format("Flow rate: %.3f m^3/s\n\n", newVNotch.getFlow());
+        weirResults.setText(results);
+      }
+      else {
+        results = results + "Invalid input parameters\n";
+        results = results + "-------------------------\n\n";
+        weirResults.setText(results);
+      }
     }
     else {
       // read input relevant to broad-crested weirs
