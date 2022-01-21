@@ -909,9 +909,19 @@ public class HydraulixGUI extends javax.swing.JFrame {
       // read input relevant to rectangular section
 
       // compute hydraulic paramters if all inputs are valid
-      results = results + "Results - Rectangular Suppressed Weir\n";
-      results = results + "-------------------------------------\n";
-      weirResults.setText(results);
+      if (checkInput(newChannelWidth) && (checkInput(newDischargeCoeff)) && (checkInput(newHead))){
+        SuppWeir newWeir = new SuppWeir(Double.parseDouble(newDischargeCoeff), Double.parseDouble(newHead), Double.parseDouble(newChannelWidth));
+        newWeir.calcFlow();
+        results = results + "Results - Rectangular Suppressed Weir\n";
+        results = results + "-------------------------------------\n";
+        results = results + String.format("Flow rate: %.3f m^3/s\n\n", newWeir.getFlow());
+        weirResults.setText(results);
+      }
+      else {
+        results = results + "Invalid input parameters\n";
+        results = results + "-------------------------\n\n";
+        weirResults.setText(results);
+      }
     }
     else if (weirRectContButton.isSelected()){
       // read input relevant to rectangular suppressed weirs

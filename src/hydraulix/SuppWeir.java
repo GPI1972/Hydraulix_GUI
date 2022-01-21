@@ -19,6 +19,6 @@ public class SuppWeir extends Weir{
   
   @Override
   public void calcFlow(){
-    this.flowRate = (2/3) * this.dischargeCoeff * this.width * java.lang.Math.sqrt(2 * 9.81) * java.lang.Math.pow((this.head), (2/3));
+    this.flowRate = (2.0/3.0) * this.dischargeCoeff * this.width * java.lang.Math.sqrt(2 * 9.81) * java.lang.Math.pow((this.head), (3.0/2.0));
   }
 }
