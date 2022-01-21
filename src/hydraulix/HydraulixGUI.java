@@ -928,7 +928,7 @@ public class HydraulixGUI extends javax.swing.JFrame {
       String newContraction = weirContraction.getText();
 
       // compute hydraulic paramters if all inputs are valid
-      if (checkInput(newChannelWidth) && (checkInput(newDischargeCoeff)) && (checkInput(newHead)) && (checkInput(newContraction))){
+      if ((checkInput(newDischargeCoeff)) && (checkInput(newHead)) && (checkInput(newContraction))){
         ContWeir newWeir = new ContWeir(Double.parseDouble(newDischargeCoeff), Double.parseDouble(newHead), Double.parseDouble(newContraction));
         newWeir.calcFlow();
         results = results + "Results - Rectangular Contracted Weir\n";
@@ -947,7 +947,7 @@ public class HydraulixGUI extends javax.swing.JFrame {
       String newVNotchAngle = weirNotchAngle.getText();
 
       // compute hydraulic paramters if all inputs are valid
-      if (checkInput(newChannelWidth) && (checkInput(newDischargeCoeff)) && (checkInput(newHead)) && (checkInput(newVNotchAngle))){
+      if ((checkInput(newDischargeCoeff)) && (checkInput(newHead)) && (checkInput(newVNotchAngle))){
         VNotch newVNotch = new VNotch(Double.parseDouble(newDischargeCoeff), Double.parseDouble(newHead), Double.parseDouble(newVNotchAngle));
         newVNotch.calcFlow();
         results = results + "Results - V-Notch\n";
@@ -983,14 +983,19 @@ public class HydraulixGUI extends javax.swing.JFrame {
     weirNotchAngle.setEnabled(false);
 
     // enable fields applicable to broad-crested weirs
+    jLabel11.setEnabled(true);
+    weirChannelWidth.setEnabled(true);
   }//GEN-LAST:event_weirBroadCrestedButtonActionPerformed
 
   private void weirVNotchButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_weirVNotchButtonActionPerformed
     // weir flow calculator
     // disable fields not applicable to V-Notch weirs
+    jLabel11.setEnabled(false);
     jLabel12.setEnabled(false);
     weirContraction.setText("");
     weirContraction.setEnabled(false);
+    weirChannelWidth.setText("");
+    weirChannelWidth.setEnabled(false);
 
     // enable fields applicable to V-Notch weirs
     jLabel13.setEnabled(true);
@@ -1000,9 +1005,12 @@ public class HydraulixGUI extends javax.swing.JFrame {
   private void weirRectContButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_weirRectContButtonActionPerformed
     // weir flow calculator
     // disable fields not applicable to rectangular contracted weirs
+    jLabel11.setEnabled(false);
     jLabel13.setEnabled(false);
     weirNotchAngle.setText("");
     weirNotchAngle.setEnabled(false);
+    weirChannelWidth.setText("");
+    weirChannelWidth.setEnabled(false);
 
     // enable fields applicable to rectangular contracted weirs
     jLabel12.setEnabled(true);
@@ -1020,6 +1028,8 @@ public class HydraulixGUI extends javax.swing.JFrame {
     weirNotchAngle.setEnabled(false);
 
     // enable fields applicable to rectangular suppressed weirs
+    jLabel11.setEnabled(true);
+    weirChannelWidth.setEnabled(true);
   }//GEN-LAST:event_weirRectSuppButtonActionPerformed
 
   // open channel calculator
