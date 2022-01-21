@@ -925,11 +925,22 @@ public class HydraulixGUI extends javax.swing.JFrame {
     }
     else if (weirRectContButton.isSelected()){
       // read input relevant to rectangular suppressed weirs
+      String newContraction = weirContraction.getText();
 
       // compute hydraulic paramters if all inputs are valid
-      results = results + "Results - Rectangular Contracted Weir\n";
-      results = results + "-------------------------------------\n";
-      weirResults.setText(results);
+      if (checkInput(newChannelWidth) && (checkInput(newDischargeCoeff)) && (checkInput(newHead)) && (checkInput(newContraction))){
+        ContWeir newWeir = new ContWeir(Double.parseDouble(newDischargeCoeff), Double.parseDouble(newHead), Double.parseDouble(newContraction));
+        newWeir.calcFlow();
+        results = results + "Results - Rectangular Contracted Weir\n";
+        results = results + "-------------------------------------\n";
+        results = results + String.format("Flow rate: %.3f m^3/s\n\n", newWeir.getFlow());
+        weirResults.setText(results);
+      }
+      else {
+        results = results + "Invalid input parameters\n";
+        results = results + "-------------------------\n\n";
+        weirResults.setText(results);
+      }
     }
     else if (weirVNotchButton.isSelected()){
       // read input relevant to V-Notch weirs
