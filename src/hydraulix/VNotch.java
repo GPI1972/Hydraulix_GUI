@@ -14,7 +14,7 @@ public class VNotch extends Weir {
   // constructor
   public VNotch(double dischargeCoeff, double head, double angle){
     super(dischargeCoeff, head);
-    this.VNotchAngle = angle;
+    this.VNotchAngle = java.lang.Math.toRadians(angle);
   }
   
   @Override
