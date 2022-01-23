@@ -901,13 +901,13 @@ public class HydraulixGUI extends javax.swing.JFrame {
     // weir flow calculator
     // read common inputs
     String results = weirResults.getText();
-    String newChannelWidth = weirChannelWidth.getText();
     String newDischargeCoeff = weirDischargeCoeff.getText();
     String newHead = weirHead.getText();
 
     if (weirRectSuppButton.isSelected()){
       // read input relevant to rectangular section
-
+      String newChannelWidth = weirChannelWidth.getText();
+    
       // compute hydraulic paramters if all inputs are valid
       if (checkInput(newChannelWidth) && (checkInput(newDischargeCoeff)) && (checkInput(newHead))){
         SuppWeir newWeir = new SuppWeir(Double.parseDouble(newDischargeCoeff), Double.parseDouble(newHead), Double.parseDouble(newChannelWidth));
@@ -962,12 +962,23 @@ public class HydraulixGUI extends javax.swing.JFrame {
       }
     }
     else {
-      // read input relevant to broad-crested weirs
-
+      // read input relevant to rectangular section
+      String newChannelWidth = weirChannelWidth.getText();
+    
       // compute hydraulic paramters if all inputs are valid
-      results = results + "Results - Broad-Crested Weir\n";
-      results = results + "----------------------------\n";
-      weirResults.setText(results);
+      if (checkInput(newChannelWidth) && (checkInput(newDischargeCoeff)) && (checkInput(newHead))){
+        BroadCrested newBCWeir = new BroadCrested(Double.parseDouble(newDischargeCoeff), Double.parseDouble(newHead), Double.parseDouble(newChannelWidth));
+        newBCWeir.calcFlow();
+        results = results + "Results - Broad-Crested Weir\n";
+        results = results + "-------------------------------------\n";
+        results = results + String.format("Flow rate: %.3f m^3/s\n\n", newBCWeir.getFlow());
+        weirResults.setText(results);
+      }
+      else {
+        results = results + "Invalid input parameters\n";
+        results = results + "-------------------------\n\n";
+        weirResults.setText(results);
+      }
     }
 
   }//GEN-LAST:event_weirCalcButtonActionPerformed
