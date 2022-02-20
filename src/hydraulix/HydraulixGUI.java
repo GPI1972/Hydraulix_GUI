@@ -92,8 +92,6 @@ public class HydraulixGUI extends javax.swing.JFrame {
     jPanel11 = new javax.swing.JPanel();
     jScrollPane3 = new javax.swing.JScrollPane();
     weirResults = new javax.swing.JTextArea();
-    jPanel4 = new javax.swing.JPanel();
-    jPanel5 = new javax.swing.JPanel();
     exitButton = new javax.swing.JButton();
 
     setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -644,32 +642,6 @@ public class HydraulixGUI extends javax.swing.JFrame {
 
     jTabbedPane1.addTab("Weir", jPanel3);
 
-    javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
-    jPanel4.setLayout(jPanel4Layout);
-    jPanel4Layout.setHorizontalGroup(
-      jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-      .addGap(0, 732, Short.MAX_VALUE)
-    );
-    jPanel4Layout.setVerticalGroup(
-      jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-      .addGap(0, 477, Short.MAX_VALUE)
-    );
-
-    jTabbedPane1.addTab("Pipe Head Losses", jPanel4);
-
-    javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
-    jPanel5.setLayout(jPanel5Layout);
-    jPanel5Layout.setHorizontalGroup(
-      jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-      .addGap(0, 732, Short.MAX_VALUE)
-    );
-    jPanel5Layout.setVerticalGroup(
-      jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-      .addGap(0, 477, Short.MAX_VALUE)
-    );
-
-    jTabbedPane1.addTab("Pipe Minor Losses", jPanel5);
-
     exitButton.setText("Exit");
     exitButton.addActionListener(new java.awt.event.ActionListener() {
       public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1171,8 +1143,6 @@ public class HydraulixGUI extends javax.swing.JFrame {
   private javax.swing.JPanel jPanel11;
   private javax.swing.JPanel jPanel2;
   private javax.swing.JPanel jPanel3;
-  private javax.swing.JPanel jPanel4;
-  private javax.swing.JPanel jPanel5;
   private javax.swing.JPanel jPanel6;
   private javax.swing.JPanel jPanel7;
   private javax.swing.JPanel jPanel8;
